@@ -1,101 +1,23 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Chat</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      margin: 0;
-    }
-
-    header {
-      background: #333;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    #chat {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-      background: #f4f4f4;
-    }
-
-    #chat div {
-      margin-bottom: 10px;
-      padding: 5px;
-      background: white;
-      border-radius: 5px;
-    }
-
-    footer {
-      display: flex;
-      padding: 10px;
-      background: #ddd;
-    }
-
-    input[type="text"] {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      padding: 10px 15px;
-      margin-left: 5px;
-      border: none;
-      background: #333;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #555;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Simple Chat</h1>
   </header>
 
-  <div id="chat"></div>
+  <main id="chat"></main>
 
   <footer>
-    <input id="message" type="text" placeholder="Type a message..." />
-    <button onclick="sendMessage()">Send</button>
+    <input id="message" type="text" placeholder="Type a message..." autocomplete="off">
+    <button id="sendBtn">Send</button>
   </footer>
 
-  <script>
-    const chatBox = document.getElementById("chat");
-    const messageInput = document.getElementById("message");
-
-    function sendMessage() {
-      const text = messageInput.value.trim();
-      if (text === "") return;
-
-      const msgDiv = document.createElement("div");
-      msgDiv.textContent = text;
-      chatBox.appendChild(msgDiv);
-
-      messageInput.value = "";
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    // Press Enter to send message
-    messageInput.addEventListener("keypress", function(e) {
-      if (e.key === "Enter") {
-        sendMessage();
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
